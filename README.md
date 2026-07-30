@@ -84,6 +84,11 @@ olist-customer-retention-analysis/
 └── docs/                              # 文档与截图
     ├── 仪表板截图.png                       # Power BI 仪表板截图
     └── 表关系图.png                   # Power BI 数据模型关系图
+    └── 月度订单趋势.png                   # Excel 月度订单趋势图
+    └── 年度订单趋势.png                   # Excel 年度订单趋势图
+    └── 区域分布.png                   # Excel 按州分组订单数
+    └── 订单状态.png                   # Excel 订单状态分布图
+    └── 物流延迟.png                   # Excel 物流是否延迟
 ```
 
 
