@@ -111,6 +111,8 @@ olist-customer-retention-analysis/
 | **订单状态占比** | 了解订单履约情况 | `delivered` 状态占比最高，`canceled` 订单较少 |
 | **物流是否延迟** | 初步评估配送准时率 | 大部分订单准时送达，约 **8%** 订单存在延迟 |
 
+![月度订单趋势](./docs/月度订单趋势.png)  ![年度订单趋势](./docs/年度订单趋势.png)  ![订单状态占比](./docs/订单状态.png)  
+![按州分组订单数](./docs/区域分布.png)  ![物流是否延迟](./docs/物流延迟.png)  
 
 ### 阶段二：SQL 深度分析
 
@@ -129,8 +131,7 @@ olist-customer-retention-analysis/
 | 5 | 品类复购率排名 + 忠诚度分类 | `category_loyalty` |
 
 **输出**：`sql/结果/*.csv`
-
-
+- [SQL 分析脚本](./sql/电子商务销售.sql)
 ### 阶段三：Power BI 可视化
 
 **目标**：将分析结果转化为交互式仪表板。
@@ -150,7 +151,6 @@ olist-customer-retention-analysis/
 
 **切片器**：日期范围、年份、品类、州（部分图表联动筛选）
 
-
 ## 🔍 核心发现
 
 ### 发现 1：巴西销售基本情况（Excel 初步探索）
@@ -163,7 +163,6 @@ olist-customer-retention-analysis/
 | **订单履约** | 绝大多数订单状态为 `delivered`，履约情况良好 |
 | **物流延迟** | 约 10-15% 的订单存在延迟，是后续分析的重点方向 |
 
-
 ### 发现 2：整体复购率极低
 
 | 指标 | 数值 |
@@ -173,7 +172,6 @@ olist-customer-retention-analysis/
 | **复购率** | **2.95%** |
 
 > 远低于电商行业 20-30% 的平均水平，客户留存是 Olist 最大的增长机会点。
-
 
 ### 发现 3：客户在第 2 个月流失最严重
 
@@ -187,7 +185,6 @@ olist-customer-retention-analysis/
 
 > 客户在首次购买后的 **第 2 个月** 是流失的关键拐点，需要在首单后 30 天内进行复购干预。
 
-
 ### 发现 4：首单延迟的客户复购率显著更低
 
 | 首单体验 | 客户数 | 复购率 |
@@ -196,7 +193,6 @@ olist-customer-retention-analysis/
 | 首单延迟 | 7,598 | 2.43% |
 
 > 首单延迟的客户复购率比准时客户 **低 0.62 个百分点**，相对降幅约 **20%**。物流体验不是"锦上添花"，而是"复购的基本门槛"。
-
 
 ### 发现 5：品类复购率差异巨大
 
@@ -210,7 +206,6 @@ olist-customer-retention-analysis/
 
 > `arts_and_craftmanship` 和 `home_appliances` 的客户忠诚度最高，建议加大流量倾斜和 SKU 扩充。
 
-
 ### 发现 6：市场档次分布
 
 基于订单量和复购率的 2×2 矩阵，将 27 个州划分为四档：
@@ -221,7 +216,6 @@ olist-customer-retention-analysis/
 | **潜力市场** | 2 | 7.4% | AC、RO |
 | **问题市场** | 9 | 33.3% | BA、CE、DF、ES、MG、PA、PE、PR、SC |
 | **衰退市场** | 11 | 40.8% | AL、AM、AP、MA、MS、PB、PI、RN、RR、SE、TO |
-
 
 ## 🎯 业务建议
 
@@ -234,7 +228,6 @@ olist-customer-retention-analysis/
 | 🟡 **中** | 针对"问题市场"州（订单量大但复购率低）重点优化物流和客服 | 提升高订单地区的留存率 |
 | 🟢 **低** | 建立客户忠诚度会员体系 | 长期提升客户终身价值 |
 
-
 ## 📊 仪表板预览
 
 ### 仪表板
@@ -242,7 +235,6 @@ olist-customer-retention-analysis/
 
 ### 数据模型关系图
 ![表关系图](./docs/表关系图.png)
-
 
 ## 📌 技术亮点
 
@@ -254,27 +246,18 @@ olist-customer-retention-analysis/
 | **交互式仪表板** | 支持多维度下钻，可响应切片器筛选 |
 | **方法论严谨** | 消除幸存者偏差（如 Q3 改进版按首单分组） |
 
-
 ## ⚠️ 局限性
 
 1. **无客户画像**：缺少年龄、性别等人口统计信息
 2. **评价数据未深度使用**：Q4 因数据缺失未完整分析
 3. **未做预测建模**：当前为描述性分析，未涉及预测
 
-## 🔄 后续扩展方向
+## 📦 完整项目文件（百度网盘）
 
-- 使用 Python 构建客户流失预测模型（机器学习）
-- 整合评价文本进行 NLP 情感分析
-- 计算客户终身价值 (CLV)
-- 分析卖家绩效对复购的影响
+由于GitHub对文件大小有限制，本项目的一些大文件（如原始数据、Power BI仪表板文件、Excel分析文件等）已上传至百度网盘。
 
-
-## 📚 相关链接
-
-- [Kaggle 数据集](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- [Power BI 仪表板](./powerbi/电子商务销售.pbix)
-- [SQL 分析脚本](./sql/电子商务销售.sql)
-
+- **下载链接**：[点击这里下载](https://pan.baidu.com/s/1DWYOu28JrvifNxkf08GFwg)
+- **提取码**：`jme1`
 
 ## 👤 作者
 
